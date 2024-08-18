@@ -183,10 +183,29 @@
 					</select></td>
 				</tr>
 				<tr class="rowdesign">
-					<td><label for="name"> <strong>Month & year: </strong></label></td>
-					<td colspan="3"><input class="form-control uppercase" type="text"	id="month_year" name="month_year" placeholder="Enter Month & Year"></td>
-					
-				</tr>
+				<td><label for="name"> <strong>Month & year: </strong></label></td>
+				<td colspan="3"><input class="form-control uppercase" type="text"	id="month_year" name="month_year" placeholder="Enter/select Month & Year"></td>
+				<td><select class="form-control" id="exam_month_selection" onchange="examMonth()">
+					<option value=" ">Select from here</option>
+
+					<option value=" APRIL 20">APRIL 20</option>
+					<option value=" NOVEMBER 20">NOVEMBER 20</option>
+					<option value=" "></option>
+					<option value=" JANUARY 20">JANUARY 20</option>
+					<option value=" FEBRUARY 20">FEBRUARY 20</option>
+					<option value=" MARCH 20">MARCH 20</option>
+					<option value=" MAY 20">MAY 20</option>
+					<option value=" JUNE 20">JUNE 20</option>
+					<option value=" JULY 20">JULY 20</option>
+					<option value=" AUGUST 20">AUGUST 20</option>
+					<option value=" SEPTEMBER 20">SEPTEMBER 20</option>
+					<option value=" OCTOBER 20">OCTOBER 20</option>
+					<option value=" DECEMBER 20">DECEMBER 20</option>
+					<option value="NA">NA</option>
+					<option value="-">-</option>
+				</select></td>
+				
+			</tr>
 				<tr class="rowdesign">
 					<td><label for="name"> <strong>Register Number: </strong></label></td>
 					<td colspan="3"><input class="form-control uppercase" type="text"	id="regno" name="regno" placeholder="Enter Register Number"></td>
@@ -223,9 +242,15 @@
 					<td colspan="3"><input class="form-control" type="date"	id="appli_date" name="appli_date" placeholder=""></td>
 				</tr>
 				<tr class="rowdesign">
-					<td><label for="name"> <strong>Student's Conduct and Character: </strong></label></td>
-					<td colspan="3"><input class="form-control uppercase" type="text"	id="stcharacter" name="Character" placeholder="Enter Character"></td>
-				</tr>
+				<td><label for="name"> <strong>Student's Conduct and Character: </strong></label></td>
+				<td colspan="3"><input class="form-control uppercase" type="text"	id="stcharacter" name="stcharacter" placeholder="Enter/select Character"></td>
+				<td><select class="form-control" id="char_selection" onchange="charSelection()">
+					<option value=" ">Select from here</option>
+					<option value="GOOD">GOOD</option>
+					<option>SATISFACTORY</option>
+					
+				</select></td>
+			</tr>
 				<tr>
 					<td><h6 style="color: red; "> Please verify before generate TC </h6></td></tr>
 				<tr><td>
@@ -416,6 +441,17 @@
 				document.getElementById('exam_appeared').value = selreason;
 				document.getElementById('exam_selection').value=""
 			}
+			function charSelection(){
+			const charselect=document.getElementById('char_selection').value;
+			document.getElementById('stcharacter').value = charselect;
+			document.getElementById('char_selection').value=""
+		}
+		
+		function examMonth(){
+			const monthSelect=document.getElementById('exam_month_selection').value;
+			document.getElementById('month_year').value = monthSelect;
+			document.getElementById('exam_month_selection').value=""
+		}
 
 
 			function formatDateToDdMmYyyy(date) {
